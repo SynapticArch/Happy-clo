@@ -53,7 +53,7 @@
 
 | Secret | 说明 |
 | --- | --- |
-| `USER_PAT` | GitHub PAT。Workflow 映射：`GH_PAT: ${{ secrets.USER_PAT \|\| secrets.GH_TOKEN }}`，未配置 `USER_PAT` 时回退到本仓库已有的 `GH_TOKEN`。需能列 fork、读写 Contents（`upstream` 分支）、读写 Pull requests，以及读 Actions 工作流 runs（邮件「最近 24h」区块）。`snake.yml` 推送 `output` 分支用的是同一个令牌。 |
+| `USER_PAT` | **必需**。GitHub PAT，映射为 `GH_PAT`。fork-sync 要跨仓库操作所有 fork，仓库自带的 `GITHUB_TOKEN` 权限不够。需能列 fork、读写 Contents（`upstream` 分支）、读写 Pull requests，以及读 Actions 工作流 runs（邮件「最近 24h」区块）。`snake.yml` 在没有 `USER_PAT` 时会回退到 `GITHUB_TOKEN`，仍可正常生成。 |
 | `OUTEMAIL_API_KEY` | Happy-TTS **对外邮件外部 API Key**（EnvManager「对外邮件 API 鉴权」），**不是** Resend `re_…` 主密钥；脚本仅用 `Authorization: Bearer <key>`。 |
 | `JANUS_WEBHOOK_SECRET` | 可选。有冲突时把冲突 JSON POST 到 Janus 自动化 webhook；未配置则跳过。 |
 
