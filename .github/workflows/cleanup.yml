@@ -1,9 +1,8 @@
 name: Cleanup Action Runs And PRs
 
 on:
-  push:
-  schedule:
-    - cron: "0 12 * * *"
+  # cleanup_forks.py 也会给 fork 开同步 PR，与 fork-sync.yml 重复；停用自动触发，只留手动
+  workflow_dispatch:
 
 jobs:
   cleanup:

@@ -1,0 +1,18 @@
+# Node
+node_modules/
+npm-debug.log*
+package-lock.json.bak
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log

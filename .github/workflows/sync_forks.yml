@@ -1,8 +1,8 @@
 name: Sync Forks
 
 on:
-  schedule:
-    - cron: "0 12 * * *"
+  # 每日同步已交给 fork-sync.yml（Node 版）；此处停用 cron，只留手动触发以备回退
+  workflow_dispatch:
 
 jobs:
   sync_forks:
